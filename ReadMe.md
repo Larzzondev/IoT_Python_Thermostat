@@ -53,7 +53,8 @@ graph TD
 
 
 
-    ## Explanation:
+Explanation:
+
 Script: The main Python script (IoT.py) that orchestrates the process.
 
 Data Gen: Generates random temperature and humidity values.
