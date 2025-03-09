@@ -6,12 +6,12 @@ Welcome to the **IoT Python Thermostat Simulator**! This project simulates an Io
 - [Overview](#overview)
 - [Features](#features)
 - [Architecture](#architecture)
-- [Installation](#installation)
+<!-- - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
+- [Contact](#contact) -->
 
 ## Overview
 This project is a simple yet effective simulation of an IoT thermostat device. It uses Python to generate random temperature (20-30°C) and humidity (30-60%) values every 60 seconds and sends them to a ThingSpeak channel for real-time tracking. The code includes error handling and debugging features, making it a robust example for IoT development.
@@ -35,27 +35,21 @@ graph TD
     E --> F[requests.get() HTTP Request]
     F --> G[ThingSpeak Server]
     G --> H[Channel: Simulated IoT Device]
-    H --> I[Field 1: Temperature]
-    H --> J[Field 2: Humidity]
+    H --> I(Field 1: Temperature)
+    H --> J(Field 2: Humidity)
     G --> K[Response (Entry ID or Error)]
-    K --> A[Feedback Loop]
+    K --> A
 
-    subgraph Local Environment
+    subgraph Local
         A
         B
         E
     end
 
-    subgraph ThingSpeak Cloud
+    subgraph Cloud
         G
         H
         I
         J
         K
     end
-
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Contact
-Author: Larzzon
-
