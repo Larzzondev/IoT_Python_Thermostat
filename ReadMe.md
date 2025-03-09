@@ -25,11 +25,15 @@ The architecture can be visualized as follows:
 
 ```mermaid
 graph TD
-    A[Device] --> B[Data]
-    B -->|Internet| C[Cloud]
-    C --> D[Storage]
-    C --> E[Graphs]
-    C -->|Internet| A
+    A[IoT Device] -->|Generate| B[Temp/Humidity Data]
+    B -->|HTTP GET| C[Internet]
+    C --> D[ThingSpeak Cloud]
+    D -->|Store| E[Channel Data]
+    E --> F[Temp Field]
+    E --> G[Humidity Field]
+    D -->|Visualize| H[Graphs]
+    D -->|Response| I[Internet]
+    I --> A
 
 
 
