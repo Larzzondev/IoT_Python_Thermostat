@@ -48,34 +48,3 @@ graph TD
         J
         K
     end
-
-
-
-
-
-Explanation:
-
-Script: The main Python script (IoT.py) that orchestrates the process.
-
-Data Gen: Generates random temperature and humidity values.
-
-Temp: Represents random temperature data (20-30°C).
-
-Humidity: Represents random humidity data (30-60%).
-
-API: Integrates with the ThingSpeak API using the requests library.
-
-HTTP: Sends data via an HTTP GET request.
-
-Server: The ThingSpeak server that processes the request.
-
-Channel: The "Simulated IoT Device" channel storing the data.
-
-Field 1: Stores temperature data.
-
-Field 2: Stores humidity data.
-
-Response: Returns an entry ID or error to the script.
-
-This diagram illustrates the data flow from the local script to the ThingSpeak cloud platform.
-
