@@ -23,28 +23,64 @@ The architecture of this IoT Thermostat Simulator can be visualized as follows:
 
 ```mermaid
 graph TD
-    A[Script] --> B[Data Gen]
-    B --> C[Temp]
-    B --> D[Humidity]
-    A --> E[API]
-    E --> F[HTTP]
-    F --> G[Server]
-    G --> H[Channel]
-    H --> I[Field 1]
-    H --> J[Field 2]
-    G --> K[Response]
-    K --> A
+    A[IoT Device Simulation] --> B[Sensor Data]
+    B --> C[Temp: 20-30°C]
+    B --> D[Humidity: 30-60%]
+    A --> E[Local Processing]
+    E --> F[HTTP Client]
+    F -->|Internet| G[ThingSpeak Cloud]
+    G --> H[API Server]
+    H --> I[Channel]
+    I --> J[Field 1: Temp]
+    I --> K[Field 2: Humidity]
+    I --> L[Visualization]
+    H --> M[Response]
+    M -->|Internet| E
 
-    subgraph Local
+    subgraph Simulated Device
         A
         B
         E
+        F
     end
 
-    subgraph Cloud
+    subgraph Cloud Platform
         G
         H
         I
         J
         K
+        L
+        M
     end
+
+
+
+
+
+
+    # Explanation:
+Script: The main Python script (IoT.py) that orchestrates the process.
+
+Data Gen: Generates random temperature and humidity values.
+
+Temp: Represents random temperature data (20-30°C).
+
+Humidity: Represents random humidity data (30-60%).
+
+API: Integrates with the ThingSpeak API using the requests library.
+
+HTTP: Sends data via an HTTP GET request.
+
+Server: The ThingSpeak server that processes the request.
+
+Channel: The "Simulated IoT Device" channel storing the data.
+
+Field 1: Stores temperature data.
+
+Field 2: Stores humidity data.
+
+Response: Returns an entry ID or error to the script.
+
+This diagram illustrates the data flow from the local script to the ThingSpeak cloud platform.
+
