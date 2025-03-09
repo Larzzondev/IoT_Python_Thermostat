@@ -23,6 +23,7 @@ This project simulates an IoT (Internet of Things) device, demonstrating how a t
 
 The architecture can be visualized as follows:
 
+
 ```mermaid
 graph TD
     A[IoT Device Simulation] --> B[Sensor Data]
