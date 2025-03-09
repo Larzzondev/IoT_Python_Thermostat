@@ -19,42 +19,34 @@ This project is a simple yet effective simulation of an IoT thermostat device. I
 - Configurable with a ThingSpeak Write API Key.
 
 ## Architecture
-This project simulates an IoT (Internet of Things) device, demonstrating how a thermostat can generate environmental data and transmit it to a cloud platform for monitoring. The script (`IoT.py`) mimics a real IoT device by generating random temperature (20-30°C) and humidity (30-60%) data, acting as if it were reading from physical sensors. It then connects to the internet and sends this data to ThingSpeak, a cloud-based IoT platform, where the data is stored and visualized in real-time. This setup showcases key IoT concepts: device simulation, internet connectivity, cloud storage, and remote monitoring.
-
-The architecture can be visualized as follows:
-
+The architecture of this IoT Thermostat Simulator can be visualized as follows:
 
 ```mermaid
 graph TD
-    A[IoT Device Simulation] --> B[Sensor Data]
-    B --> C[Temp: 20-30°C]
-    B --> D[Humidity: 30-60%]
-    A --> E[Local Processing]
-    E --> F[HTTP Client]
-    F -->|Internet| G[ThingSpeak Cloud]
-    G --> H[API Server]
-    H --> I[Channel]
-    I --> J[Field 1: Temp]
-    I --> K[Field 2: Humidity]
-    I --> L[Visualization]
-    H --> M[Response]
-    M -->|Internet| E
+    A[Script] --> B[Data Gen]
+    B --> C[Temp]
+    B --> D[Humidity]
+    A --> E[API]
+    E --> F[HTTP]
+    F --> G[Server]
+    G --> H[Channel]
+    H --> I[Field 1]
+    H --> J[Field 2]
+    G --> K[Response]
+    K --> A
 
-    subgraph Simulated Device
+    subgraph Local
         A
         B
         E
-        F
     end
 
-    subgraph Cloud Platform
+    subgraph Cloud
         G
         H
         I
         J
         K
-        L
-        M
     end
 
 
